@@ -1,32 +1,28 @@
 import React, { useContext, useState } from 'react'
-import {data} from '../App'
+import {completeFunc, deleteFunc} from '../App'
 
 
 
 //Displays all the tasks
-const ToDoItem = (TodoArrayItem) => {
-  let toggleCompleted = useContext(data[0])
-  let deleteTodo = useContext(data[1])
+const ToDoItem = ({text, id, completed, timestamp}) => {
+  let toggleCompleted = useContext(completeFunc)
+  let deleteTodo = useContext(deleteFunc)
+  console.log("toggle: " +toggleCompleted)
+  console.log("delete: " + deleteTodo)
   return (
     <div>
       <li>
       {/* main content */}
-      {TodoArrayItem.text} &nbsp; &nbsp;
-      {TodoArrayItem.timestamp}
+      {text} &nbsp; &nbsp;
+      {timestamp}
       {/* complete buttton */}
-      <button onClick={toggleCompleted(TodoArrayItem.id)}>
-        {/* function to determine if we should write undo or complete in the button */}
-        {()=>{
-          if(TodoArrayItem.completed){
-            return("Undo")
-          }
-          else{
-            return("Complete")
-          }
-        }}
-        {/* delete button */}
+
+     
+      {/* delete button writes undo/complete */}
+      <button onClick={() => toggleCompleted(id)}>
+        Complete
       </button>
-      <button onClick={deleteTodo(TodoArrayItem.id)}>Delete</button>
+      <button onClick={() => deleteTodo(id)}>Delete</button> 
       </li>
     </div>
   )

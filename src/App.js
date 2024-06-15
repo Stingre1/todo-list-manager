@@ -6,7 +6,8 @@ import ToDoItem from './components/ToDoItem';
 
 
 
-const data = createContext()
+const completeFunc = createContext()
+const deleteFunc = createContext()
 
 function App() {
   const [TodoArray, setTodoArray] = useState([])
@@ -15,7 +16,7 @@ function App() {
   let addTodoItem = (text) => {
     //...TodoArray is a copy of the array.
     //We then add a new object to the array with 4 key-value pairs
-    setTodoArray([...TodoArray, {text, completed: false, id: IdNumber, timestamp: Date.now()}])
+    setTodoArray([...TodoArray, {text, completed: false, id: IdNumber, timestamp: new Date().toLocaleTimeString()}])
     setIdNumber(IdNumber+1)  
   }
 
@@ -43,41 +44,49 @@ function App() {
   
   // let n=document.querySelector('.input')
   // console.log(n.value)
-  const contextValues = {
-    toggleCompleted,
-    deleteTodo
-  }
+  const contextValue1 = toggleCompleted
+  const contextValue2 = deleteTodo
+
 
   return (
-    <div className="App">
-      <header>
-        <div className='container'>
-           <h1>To-Do List Manager</h1>
+    <>
+    
+        <div className="App">
+          <header>
+            <div className='container'>
+              <h1>To-Do List Manager</h1>
+            </div>
+          </header>
+          <section className='contents'>
+            <div className='container'>
+              <TaskInput
+                addTodo={addTodoItem}
+              />
+              
+              <ul>
+              <completeFunc.Provider value={contextValue1}>
+                <deleteFunc.Provider value={contextValue2}>
+                    {TodoArray.map((TodoArrayItem) => (
+                      <ToDoItem
+                        key={TodoArrayItem.id}
+                        text={TodoArrayItem.text}
+                        id = {TodoArrayItem.id}
+                        completed={TodoArrayItem.completed}
+                        timestamp={TodoArrayItem.timestamp}   
+                      //   toggleCompleted={toggleCompleted}
+                      //   deleteTodo={deleteTodo}
+                      /> 
+                    ))}
+                </deleteFunc.Provider>
+              </completeFunc.Provider>    
+              </ul>
+            </div>
+          </section>
         </div>
-      </header>
-      <section className='contents'>
-        <div className='container'>
-          <TaskInput
-            addTodo={addTodoItem}
-          />
-          
-          <ul>
-            <data.Provider value={contextValues}>
-              {TodoArray.map((TodoArrayItem) => (
-                <ToDoItem
-                  // key={TodoArrayItem.id}
-                  TodoArrayItem={TodoArrayItem}
-                  toggleCompleted={toggleCompleted}
-                  deleteTodo={deleteTodo}
-                />
-              ))}
-            </data.Provider>
-          </ul>
-        </div>
-      </section>
-    </div>
+     
+  </>
   );
 }
 
 export default App;
-export {data}
+export {completeFunc, deleteFunc}
