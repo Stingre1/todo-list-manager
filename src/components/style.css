@@ -5,16 +5,24 @@
     align-items: center;
     justify-content: center;    
 }
-
+.topHead{
+    margin-top: 30px;
+    margin-bottom: 50px;
+    font-family:fantasy;
+}
 header {
     display: flex;
     background-color: #171717;
     text-align: center;
     font-size: 3rem;
     color: azure;
+    
+    
 }
 
 body {
+    margin: 0PX;
+    padding: 0px;
     width: 100%;
     background-color: #212121;
 }
@@ -31,6 +39,7 @@ body {
     color:black;
 }
 li {
+
     color: white;
     font-size: 16px;
 }

@@ -54,11 +54,12 @@ function App() {
         <div className="App">
           <header>
             <div className='container'>
-              <h1>To-Do List Manager</h1>
+              <h1 className='topHead'>To-Do List Manager</h1>
             </div>
           </header>
           <section className='contents'>
             <div className='container'>
+              <br/>
               <TaskInput
                 addTodo={addTodoItem}
               />
