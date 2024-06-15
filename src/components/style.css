@@ -44,3 +44,59 @@ li {
     font-size: 16px;
 }
 
+.taskInputTop {
+    margin-top: 2%;
+}
+
+.inputFieldBox  {
+    width: 30%;
+    height: 40px;
+    background-color: transparent;
+    border-radius: 5%;
+    border: 4px solid #67676B;
+    color: white;
+    margin-right: 10px;
+    transition: all;
+    transition-duration: 200ms;
+    font-size: 20px;
+    padding:5px;
+    font-family: Candara;
+}
+
+.inputFieldBox:hover {
+    transform: scale(1.05);
+}
+
+.inputFieldBox::placeholder {
+    color: white;
+    font-size: 20px;
+    text-align: left;
+    font-family: 'Century Gothic';
+    font-style: italic;
+}
+.addTask {
+    width: 70px;
+    height: 60px;
+    color: limegreen;
+    background-color: gray;
+    border: 4px solid #67676B;
+    border-radius: 5%;
+    font-size: 30px;
+    text-align: center;
+    justify-content: center;
+    padding: 2px;
+    transition: all;
+    transition-duration: 200ms;
+}
+.addTask:hover {
+    transform: scale(1.05);
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+

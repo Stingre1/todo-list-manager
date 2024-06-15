@@ -17,14 +17,14 @@ const TaskInput = ({ addTodo }) => {
   }
 
   return (
-    <div>
+    <div className='taskInputTop'>
         <form onSubmit={handleSubmission}>
             <input className='inputFieldBox' type="text" value={inputFieldValue} onChange={(eventObj) => {
                 console.log(eventObj.target.value)
                 setInputFieldValue(eventObj.target.value)
             }} 
-            placeholder='Enter a new task' />
-            <button className='addTask' type="Submit">+</button>
+            placeholder=' Enter a new task' />
+            <button className='addTask' type="Submit"> + </button>
         </form>
     </div>
   )
