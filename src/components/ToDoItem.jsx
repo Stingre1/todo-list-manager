@@ -13,16 +13,19 @@ const ToDoItem = ({text, id, completed, timestamp}) => {
     <div>
       <li>
       {/* main content */}
-      {text} &nbsp; &nbsp;
-      {timestamp}
+      <div className='timeInfo'>{timestamp}</div>
+      <div className='listItems'>{text} &nbsp; &nbsp;</div>
+      
       {/* complete buttton */}
 
      
       {/* delete button writes undo/complete */}
-      <button className="completeButton" onClick={() => toggleCompleted(id)}>
+      <div className='buttons'>
+      <button className="completeButton buttonsItems" onClick={() => toggleCompleted(id)}>
           {completed ? "Undo" : "Complete"}
       </button>
-      <button onClick={() => deleteTodo(id)}>Delete</button> 
+      <button className="buttonsItems" onClick={() => deleteTodo(id)}>Delete</button> 
+      </div>
       </li>
     </div>
   )
