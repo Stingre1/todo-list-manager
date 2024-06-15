@@ -19,8 +19,8 @@ const ToDoItem = ({text, id, completed, timestamp}) => {
 
      
       {/* delete button writes undo/complete */}
-      <button onClick={() => toggleCompleted(id)}>
-        Complete
+      <button className="completeButton" onClick={() => toggleCompleted(id)}>
+          {completed ? "Undo" : "Complete"}
       </button>
       <button onClick={() => deleteTodo(id)}>Delete</button> 
       </li>
