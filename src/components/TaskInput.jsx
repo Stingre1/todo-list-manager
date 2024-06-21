@@ -24,7 +24,7 @@ const TaskInput = ({ addTodo }) => {
                 setInputFieldValue(eventObj.target.value)
             }} 
             placeholder=' Enter a new task' />
-            <button className='addTask' type="Submit"> + </button>
+            <button className='addTask' type="Submit">+</button>
         </form>
     </div>
   )
